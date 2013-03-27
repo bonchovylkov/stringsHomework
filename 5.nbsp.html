@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Functions - Sum of Even Numbers</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<script src="scripts/string-extensions.js"></script>
+</head>
+<body>							  
+
+	<!--<label for="tb-numbers">Enter the  number which last digit, you need!: </label>
+	<input id="tb-numbers" type="text" class="js-console-input" />
+	<a href="#" class="js-console-btn" onclick="printTheLastDigit()">Read last digit</a>-->
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+	   var sometext = new String(' Mr.Andersen,surprise to see me? ');
+	   jsConsole.writeLine(replaceAllWhiteSpaces(sometext, '&nbsp'));
+function replaceAllWhiteSpaces(text, newSymbol) {
+    var result = '';
+    for (var i=0;i<text.length;i++) {
+        if (text[i] == ' ') {
+            result += newSymbol;
+        }
+        else {
+            result += text[i];
+        }
+    }
+    return result;
+}
+
+
+
+	</script>
+
+</body>
+</html>

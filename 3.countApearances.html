@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Functions - Sum of Even Numbers</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<script src="scripts/string-extensions.js"></script>
+</head>
+<body>							  
+
+	<label for="text" >Write a text.</label>
+	<input id="text" type="text" style="width:900px" class="js-console-input" />
+    <br />
+    <label for="sub">Write a subring you want to count from the rext!</label>
+	<input id="sub" type="text" class="js-console-input" />
+    <br />
+    <br />
+	<a href="#" class="js-console-btn" onclick="printApearrances()">Find the appearances(Case insensitive e.g. IN=in)</a>
+    <br />
+    <br />
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+
+	    function printApearrances() {
+		    var text = jsConsole.readString("#text");
+		    var sub = jsConsole.readString("#sub");
+		    var result = countAppearances(text, sub);
+		    jsConsole.writeLine(result + " appearances on the substring " + "'" + sub + "'!");
+
+	    }
+	    function countAppearances(text, sub) {
+	        text = text.toLowerCase();
+	        sub = sub.toLowerCase();
+	        var indexOfSub = text.indexOf(sub);
+	        var count = 0;
+	        while (indexOfSub>-1) {
+	            count++;
+	            indexOfSub = text.indexOf(sub, indexOfSub + 1);
+	        }
+	        return count;
+	    }
+
+
+	</script>
+
+</body>
+</html>

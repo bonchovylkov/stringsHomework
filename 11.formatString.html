@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Functions - Sum of Even Numbers</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<script src="scripts/string-extensions.js"></script>
+</head>
+<body>							  
+
+	<label for="text">Write a text with some placeholders in it(starting from 0)!</label>
+	<input id="text" type="text" class="js-console-input" />
+    <br />
+    <label for="sub">Write the words which gonna substitute the placehorders,<strong>separated by ","!</strong> (In order you want you need them as c#)</label>
+	<input id="sub" type="text" class="js-console-input" />
+    <br />
+	<a href="#" class="js-console-btn" onclick="pritnTheSubstitute()">Make the substitute</a>
+    <br />
+    <br />
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+
+	    function pritnTheSubstitute() {
+	        var text = jsConsole.readString("#text");
+	        var words = jsConsole.readString("#sub");
+	        var wordsArr = words.split(",");	       
+	        var formated = stringFormat(text, wordsArr);
+	        jsConsole.writeLine(formated);
+	    }
+	    function stringFormat(text,wordsArr)
+	    {
+	        var strB = buildStringBuilder();
+	        var beggining = 0;
+	        var index = text.indexOf("{");
+	        while (index>-1) {
+	            var number = parseInt(text.substr(index + 1, 1));
+	            strB.append(text.substring(beggining, index - 1) + " ");
+	            strB.append(wordsArr[number] + " ");
+	            //jsConsole.writeLine(strB.toString());
+	            beggining = index + 3;
+	            index = text.indexOf("{",index+1);
+	        }
+	        return strB.toString();
+	    }
+	    function buildStringBuilder() {
+	        return {
+	            strs: [],
+	            len: 0,
+	            append: function (str) {
+	                this.strs[this.len++] = str;
+	                return this;
+	            },
+	            toString: function () {
+	                return this.strs.join("");
+	            }
+	        };
+	    }
+		
+
+
+	</script>
+
+</body>
+</html>

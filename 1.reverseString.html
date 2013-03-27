@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Functions - Sum of Even Numbers</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	<script src="scripts/string-extensions.js"></script>
+</head>
+<body>							  
+
+	<label for="string">Write a text to reverse it! </label>
+	<input id="string" type="text" class="js-console-input" />
+	<a href="#" class="js-console-btn" onclick="reverseText()">Reverse</a>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+
+	    function reverseText() {
+		    var str = jsConsole.readString("#string");
+		    var stringBuilder = buildStringBuilder();
+		    for (var i = str.length; i >= 0; i--) {
+		        stringBuilder.append(str[i]);
+		    }
+		    jsConsole.writeLine(stringBuilder);
+
+		}
+		function buildStringBuilder() {
+		    return {
+		        strs: [],
+		        len: 0,
+		        append: function (str) {
+		            this.strs[this.len++] = str;
+		            return this;
+		        },
+		        toString: function () {
+		            return this.strs.join("");
+		        }
+		    };
+		}
+
+
+	</script>
+
+</body>
+</html>
